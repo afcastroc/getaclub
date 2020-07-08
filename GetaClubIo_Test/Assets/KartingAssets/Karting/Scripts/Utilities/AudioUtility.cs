@@ -16,31 +16,44 @@ public class AudioUtility
 
     public static void CreateSFX(AudioClip clip, Vector3 position, AudioGroups audioGroup, float spatialBlend, float rolloffDistanceMin = 1f)
     {
-        GameObject impactSFXInstance = new GameObject("SFX_" + clip.name);
-        impactSFXInstance.transform.position = position;
-        AudioSource source = impactSFXInstance.AddComponent<AudioSource>();
-        source.clip = clip;
-        source.spatialBlend = spatialBlend;
-        source.minDistance = rolloffDistanceMin;
-        source.Play();
+		try
+		{
+			GameObject impactSFXInstance = new GameObject("SFX_" + clip.name);
+			impactSFXInstance.transform.position = position;
+			AudioSource source = impactSFXInstance.AddComponent<AudioSource>();
+			source.clip = clip;
+			source.spatialBlend = spatialBlend;
+			source.minDistance = rolloffDistanceMin;
+			source.Play();
 
-        source.outputAudioMixerGroup = GetAudioGroup(audioGroup);
+			source.outputAudioMixerGroup = GetAudioGroup(audioGroup);
 
-        m_AudioManager.EnsureSFXDestruction(source);
+			m_AudioManager.EnsureSFXDestruction(source);
+		}
+		catch {
+
+		}
     }
 
     public static AudioMixerGroup GetAudioGroup(AudioGroups group)
     {
-        if (m_AudioManager == null)
-            m_AudioManager = GameObject.FindObjectOfType<AudioManager>();
+		try
+		{
+			if (m_AudioManager == null)
+				m_AudioManager = GameObject.FindObjectOfType<AudioManager>();
 
-        var groups = m_AudioManager.audioMixer.FindMatchingGroups(group.ToString());
+			var groups = m_AudioManager.audioMixer.FindMatchingGroups(group.ToString());
 
-        if (groups.Length > 0)
-            return groups[0];
+			if (groups.Length > 0)
+				return groups[0];
 
-        Debug.LogWarning("Didn't find audio group for " + group.ToString());
-        return null;
+			Debug.LogWarning("Didn't find audio group for " + group.ToString());
+			return null;
+		}
+		catch
+		{
+			return null;
+		}
     }
 
     public static void SetMasterVolume(float value)
