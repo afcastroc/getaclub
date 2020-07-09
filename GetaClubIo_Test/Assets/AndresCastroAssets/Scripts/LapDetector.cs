@@ -22,6 +22,7 @@ public class LapDetector : MonoBehaviour
 			if (other.GetComponentInParent<CalculeLap>().canFinishLap)
 			{
 				currentLap++;
+				other.GetComponentInParent<CalculeLap>().AddLap();
 				if (currentLap >= totalLaps)
 				{
 					FindObjectOfType<Mode>().CheckEndGame();

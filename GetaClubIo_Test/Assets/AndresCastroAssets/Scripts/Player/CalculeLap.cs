@@ -8,6 +8,7 @@ public class CalculeLap : MonoBehaviour
 	public Transform waypoints;
 	public float minDistance = 0f;
 	public bool canFinishLap = false;
+	public int lap = 0;
 
 	private Transform currentWaypoint;
 	private int index = 0;
@@ -44,5 +45,11 @@ public class CalculeLap : MonoBehaviour
 	public void ResetToNewLap()
 	{
 		canFinishLap = false;
+	}
+
+	//Add Lap from LapDetector
+	public void AddLap()
+	{
+		lap++;
 	}
 }
