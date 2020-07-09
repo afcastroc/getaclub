@@ -31,3 +31,8 @@ Scripts - Código creado, a su vez se divide en:
 	Player - Clase que calcula el progreso de avance de la pista.
 	Skills - Clase con el uso del drift. (El drift se obtiene en juego empleando las direccionales combinadas con la tecla espacio)
 
+KartingAssets - Assets originales de Karting Microgame
+TextMesh Pro - Assets de TExtMeshPro para la UI de Unity.
+
+Muchas gracias por la oportunidad.
+
