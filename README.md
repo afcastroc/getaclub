@@ -10,7 +10,7 @@ Prueba técnica de karts Andrés Fabián Castro Castro.
 5. Desarrollar una mecánica de derrape para que el carro se deslice por el suelo cuando las curvas sean muy pronunciadas.
 
 Uso:
-Clonar o descargar el proyecto y abrirlo con Unity en su versión 2019.2.21.f
+Clonar o descargar el proyecto y abrirlo con Unity en su versión 2019.4.2.f1
 Abrir el proyeto y ubicar la escena en la carpeta AndresCastroAssets/Scenes/MainMenu.
 Ubicar el GameObject Builder donde se puede seleccionar la dificultad y el modo de juego entre Timer, Vs e Items y los atributos del carro a implementar.
 Dar play y disfrutar de los tipos de juego y dificultades.
