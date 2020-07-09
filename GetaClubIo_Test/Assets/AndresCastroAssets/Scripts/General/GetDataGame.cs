@@ -66,6 +66,6 @@ public class GetDataGame : MonoBehaviour
 	//Save gameConfig to Load by next scene
 	private void SaveGameData(string json)
 	{
-		PlayerPrefs.SetString("GameData", json);
+		PlayerPrefs.SetString(GameConst.GAME_DATA_KEY, json);
 	}
 }

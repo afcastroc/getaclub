@@ -13,4 +13,7 @@ internal class GameConst
 	//Result Game messages
 	public const string PLAYER_WIN = "You Win";
 	public const string PLAYER_LOSE = "You Lose";
+
+	//Prefs keyNames
+	public const string GAME_DATA_KEY = "GameData";
 }

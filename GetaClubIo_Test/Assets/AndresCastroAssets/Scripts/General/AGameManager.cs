@@ -9,6 +9,7 @@ using Newtonsoft.Json;
 
 public class AGameManager : MonoBehaviour
 {
+	[Header("GameType")]
 	public GameType gameType;
 
 	[Header("PlayerSettings")]
@@ -50,7 +51,7 @@ public class AGameManager : MonoBehaviour
 
 	private void LoadGameData()
 	{
-		string gameData = PlayerPrefs.GetString("GameData");
+		string gameData = PlayerPrefs.GetString(GameConst.GAME_DATA_KEY);
 		GameData data = new GameData();
 		data = JsonConvert.DeserializeObject<GameData>(gameData);
 
