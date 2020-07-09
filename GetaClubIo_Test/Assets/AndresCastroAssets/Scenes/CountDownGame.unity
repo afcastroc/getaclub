@@ -13375,7 +13375,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207105314}
-  m_LocalRotation: {x: 0.018027125, y: 0.000000101797994, z: 0.0000051690813, w: -0.9998375}
+  m_LocalRotation: {x: 0.018027125, y: 0.000000101797966, z: 0.0000051690813, w: -0.9998375}
   m_LocalPosition: {x: 18.6, y: 2.26, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -15437,7 +15437,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389235981}
-  m_LocalRotation: {x: 0.018027125, y: 0.000000101797994, z: 0.0000051690813, w: -0.9998375}
+  m_LocalRotation: {x: 0.018027125, y: 0.000000101797966, z: 0.0000051690813, w: -0.9998375}
   m_LocalPosition: {x: 18.6, y: 2.26, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -21323,6 +21323,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameType: 2
+  topSpeed: 10
+  acceleration: 15
+  accelerationCurve: 0.8
+  braking: 10
+  steer: 5
   gameTimer: 20
   timerItems: {fileID: 90857491}
   dificulty: 2
@@ -31289,15 +31294,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseStats:
-    TopSpeed: 10
-    Acceleration: 15
+    TopSpeed: 0
+    Acceleration: 0
     ReverseSpeed: 5
     ReverseAcceleration: 5
-    AccelerationCurve: 0.8
-    Braking: 10
+    AccelerationCurve: 0.2
+    Braking: 0
     CoastingDrag: 4
     Grip: 0.95
-    Steer: 5
+    Steer: 0
     AddedGravity: 0
     Suspension: 0
   CenterOfMass: {fileID: 3934862072142947517}

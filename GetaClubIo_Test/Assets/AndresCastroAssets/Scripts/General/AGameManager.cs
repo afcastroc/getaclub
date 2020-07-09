@@ -1,4 +1,5 @@
-﻿using KartGame.UI;
+﻿using KartGame.KartSystems;
+using KartGame.UI;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,6 +8,14 @@ using UnityEngine;
 public class AGameManager : MonoBehaviour
 {
 	public GameType gameType;
+
+	[Header("PlayerSettings")]
+	public float topSpeed = 0f;
+	public float acceleration = 0f;
+	[Range(0, 1f)]
+	public float accelerationCurve = 0f;
+	public float braking = 0f;
+	public float steer = 0f;
 
 	[Header("TimerModeSettings")]
 	public float gameTimer = 0f;
@@ -34,10 +43,22 @@ public class AGameManager : MonoBehaviour
 	//Check Game type and Setup mode
 	public void Start()
 	{
+		SetupPlayer();
 		if (gameType == GameType.timer) SetupTimerMode();
 		else if (gameType == GameType.vs) SetupVsMode();
 		else if (gameType == GameType.Items) SetupItemMode();
 		exit = GetComponent<LoadSceneButton>();
+	}
+
+	//Set values to Player
+	public void SetupPlayer()
+	{
+		ArcadeKart kart = playerKart.GetComponent<ArcadeKart>();
+		kart.baseStats.TopSpeed = topSpeed;
+		kart.baseStats.Acceleration = acceleration;
+		kart.baseStats.AccelerationCurve = accelerationCurve;
+		kart.baseStats.Braking = braking;
+		kart.baseStats.Steer = steer;
 	}
 
 	//Setup Timer game mode
