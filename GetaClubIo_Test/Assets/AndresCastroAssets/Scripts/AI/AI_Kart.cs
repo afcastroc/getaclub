@@ -6,7 +6,7 @@ using UnityEngine;
 public class AI_Kart : MonoBehaviour
 {
 	[Header("AISettings")]
-	public GameDificulty dificulty;
+	public GameDificult dificulty;
 	public Transform circuit;
 	public float steeringSensitivity = 0.01f;
 	private Vector3 target;
@@ -46,19 +46,19 @@ public class AI_Kart : MonoBehaviour
 	//Setup difficult from AGameManager
 	public void SetupDifficult()
 	{
-		if (dificulty == GameDificulty.easy)
+		if (dificulty == GameDificult.easy)
 		{
 			ak.baseStats.TopSpeed -= 1;
 			ak.baseStats.Acceleration -= 1;
 			steeringSensitivity = 0.011f;
 		}
-		if (dificulty == GameDificulty.normal)
+		if (dificulty == GameDificult.normal)
 		{
 			ak.baseStats.TopSpeed += 1;
 			ak.baseStats.Acceleration += 1;
 			steeringSensitivity = 0.011f;
 		}
-		else if (dificulty == GameDificulty.hard)
+		else if (dificulty == GameDificult.hard)
 		{
 			ak.baseStats.TopSpeed += 2;
 			ak.baseStats.Acceleration += 2;

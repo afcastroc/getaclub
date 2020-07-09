@@ -288,3 +288,4 @@ D:\Andres\Trabajo\Getaclub\GIT\getaclub\GetaClubIo_Test\obj\Debug\KartGame.cspro
 D:\Andres\Trabajo\Getaclub\GIT\getaclub\GetaClubIo_Test\obj\Debug\KartGame.csproj.CopyComplete
 D:\Andres\Trabajo\Getaclub\GIT\getaclub\GetaClubIo_Test\obj\Debug\KartGame.dll
 D:\Andres\Trabajo\Getaclub\GIT\getaclub\GetaClubIo_Test\obj\Debug\KartGame.pdb
+D:\Andres\Trabajo\Getaclub\GIT\getaclub\GetaClubIo_Test\Temp\bin\Debug\Newtonsoft.Json.dll

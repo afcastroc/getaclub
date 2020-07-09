@@ -13375,7 +13375,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1207105314}
-  m_LocalRotation: {x: 0.018027125, y: 0.000000101797966, z: 0.0000051690813, w: -0.9998375}
+  m_LocalRotation: {x: 0.018027125, y: 0.00000010179798, z: 0.0000051690813, w: -0.9998375}
   m_LocalPosition: {x: 18.6, y: 2.26, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -15437,7 +15437,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1389235981}
-  m_LocalRotation: {x: 0.018027125, y: 0.000000101797966, z: 0.0000051690813, w: -0.9998375}
+  m_LocalRotation: {x: 0.018027125, y: 0.00000010179798, z: 0.0000051690813, w: -0.9998375}
   m_LocalPosition: {x: 18.6, y: 2.26, z: -3.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16166,7 +16166,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1472441136
 Transform:
   m_ObjectHideFlags: 0
@@ -21333,6 +21333,7 @@ MonoBehaviour:
   dificulty: 2
   playerKart: {fileID: 3934862072311242274}
   kart_AI: {fileID: 552481733989143533}
+  aiWaypoints: {fileID: 1472441136}
   gameItemsTimer: 60
   boostItems: {fileID: 596879618}
   loseControlItems: {fileID: 1193036125}
@@ -31330,11 +31331,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   kart: {fileID: 3934862072311242297}
-  extremumSlip: 0.05
-  extremumValue: 0.02
-  AsymSlip: 0.5
-  AsymValue: 0.75
-  Stiffness: 3
 --- !u!54 &3934862072311242302
 Rigidbody:
   m_ObjectHideFlags: 0

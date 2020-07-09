@@ -1,9 +1,11 @@
 ﻿using KartGame.KartSystems;
 using KartGame.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class AGameManager : MonoBehaviour
 {
@@ -22,9 +24,10 @@ public class AGameManager : MonoBehaviour
 	public Transform timerItems;
 
 	[Header("VsModeSettings")]
-	public GameDificulty dificulty;
+	public GameDificult dificulty;
 	public Transform playerKart;
 	public Transform kart_AI;
+	public Transform aiWaypoints;
 
 	[Header("ItemsMode")]
 	public float gameItemsTimer = 0f;
@@ -39,6 +42,26 @@ public class AGameManager : MonoBehaviour
 	[Header("UISettings")]
 	public TextMeshProUGUI gameResult;
 	public TextMeshProUGUI timerUI;
+
+	private void Awake()
+	{
+		LoadGameData();
+	}
+
+	private void LoadGameData()
+	{
+		string gameData = PlayerPrefs.GetString("GameData");
+		GameData data = new GameData();
+		data = JsonConvert.DeserializeObject<GameData>(gameData);
+
+		gameType = data.gameType;
+		dificulty = data.dificulty;
+		topSpeed = data.topSpeed;
+		acceleration = data.acceleration;
+		accelerationCurve = data.accelerationCurve;
+		braking = data.braking;
+		steer = data.steer;
+	}
 
 	//Check Game type and Setup mode
 	public void Start()
@@ -67,6 +90,7 @@ public class AGameManager : MonoBehaviour
 		TimerMode mode = gameObject.AddComponent<TimerMode>();
 		mode.timerUI = timerUI;
 		mode.SetupMode(gameTimer);
+		mode.SetupDifficult(dificulty);
 
 		FindObjectOfType<LapDetector>().totalLaps = 1;
 		timerItems.gameObject.SetActive(true);
@@ -76,10 +100,11 @@ public class AGameManager : MonoBehaviour
 	//Setup Vs game mode
 	public void SetupVsMode()
 	{
-		kart_AI.gameObject.SetActive(true);
+		aiWaypoints.gameObject.SetActive(false);
 		kart_AI.GetComponent<AI_Kart>().SetupAIKart();
 		kart_AI.GetComponent<AI_Kart>().dificulty = dificulty;
 		kart_AI.GetComponent<AI_Kart>().SetupDifficult();
+		kart_AI.gameObject.SetActive(true);
 
 		VsMode mode = gameObject.AddComponent<VsMode>();
 		mode.player = playerKart.GetComponent<CalculeLap>();
@@ -130,7 +155,7 @@ public enum GameType
 	Items
 }
 
-public enum GameDificulty
+public enum GameDificult
 {
 	easy,
 	normal,
