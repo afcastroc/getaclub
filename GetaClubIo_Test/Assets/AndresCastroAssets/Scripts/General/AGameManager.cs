@@ -25,7 +25,7 @@ public class AGameManager : MonoBehaviour
 	public Transform timerItems;
 
 	[Header("VsModeSettings")]
-	public GameDificult dificulty;
+	public GameDificulty dificulty;
 	public Transform playerKart;
 	public Transform kart_AI;
 	public Transform aiWaypoints;
@@ -130,7 +130,10 @@ public class AGameManager : MonoBehaviour
 		jumpItems.gameObject.SetActive(true);
 	}
 
-	//Show the end game result
+	/*Show the end game result
+	 * @parm: success of the game
+	 * @return: void
+	 */
 	public void EndGame(bool success)
 	{
 		if (success) gameResult.text = GameConst.PLAYER_WIN;
@@ -156,7 +159,8 @@ public enum GameType
 	Items
 }
 
-public enum GameDificult
+//GameDifficulty
+public enum GameDificulty
 {
 	easy,
 	normal,

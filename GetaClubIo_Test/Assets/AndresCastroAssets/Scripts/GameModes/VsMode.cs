@@ -7,6 +7,7 @@ public class VsMode : Mode
 	public CalculeLap aiKart;
 	public CalculeLap player;
 
+	//Check the conditions if game is ending
 	public override void CheckEndGame()
 	{
 		if (player.lap > aiKart.lap) GetComponent<AGameManager>().EndGame(true);

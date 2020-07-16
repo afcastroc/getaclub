@@ -1,6 +1,4 @@
 ﻿using KartGame.KartSystems;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AIInput : BaseInput
@@ -8,6 +6,9 @@ public class AIInput : BaseInput
 	public float horizontalValue = 0f;
 	public float verticalValue = 0f;
 
+	/*Register the horizontal and vertical values by AI_Kart (AssignInputsToIA)
+	 * @return: Vector2 with Ai inputs generated
+	 */
 	public override Vector2 GenerateInput()
 	{
 		return new Vector2

@@ -6,7 +6,7 @@ using UnityEngine;
 public class AI_Kart : MonoBehaviour
 {
 	[Header("AISettings")]
-	public GameDificult dificulty;
+	public GameDificulty dificulty;
 	public Transform circuit;
 	public float steeringSensitivity = 0.01f;
 	private Vector3 target;
@@ -18,7 +18,6 @@ public class AI_Kart : MonoBehaviour
 	private float lookAhead = 10;
 	private AIInput input;
 
-	//Setup TrackerObject
 	public void Start()
 	{
 		SetupAIKart();
@@ -30,6 +29,7 @@ public class AI_Kart : MonoBehaviour
 		CalculeSteer();
 	}
 
+	//Setup TrackerObject
 	public void SetupAIKart()
 	{
 		input = GetComponent<AIInput>();
@@ -46,24 +46,22 @@ public class AI_Kart : MonoBehaviour
 	//Setup difficult from AGameManager
 	public void SetupDifficult()
 	{
-		if (dificulty == GameDificult.easy)
-		{
-			ak.baseStats.TopSpeed -= 1;
-			ak.baseStats.Acceleration -= 1;
-			steeringSensitivity = 0.011f;
-		}
-		if (dificulty == GameDificult.normal)
-		{
-			ak.baseStats.TopSpeed += 1;
-			ak.baseStats.Acceleration += 1;
-			steeringSensitivity = 0.011f;
-		}
-		else if (dificulty == GameDificult.hard)
-		{
-			ak.baseStats.TopSpeed += 2;
-			ak.baseStats.Acceleration += 2;
-			steeringSensitivity = 0.015f;
-		}
+		if (dificulty == GameDificulty.easy) SetDifficultParams(-1, -1, 0.011f);
+		else if (dificulty == GameDificulty.normal) SetDifficultParams(1, 1, 0.011f);
+		else if (dificulty == GameDificulty.hard) SetDifficultParams(2, 2, 0.015f);
+	}
+
+	/*Register the speed, acceleration and steer sensitivity top parameters to the AI according to its difficulty
+	 * @parm: the speed according difficult level
+	 * @parm: the acceleration according difficult level
+	 * @parm: the steer sensitivity according difficult level
+	 * @return: void
+	 */
+	public void SetDifficultParams(int speed, int accel, float steerSensitivity)
+	{
+		ak.baseStats.TopSpeed += speed;
+		ak.baseStats.Acceleration += accel;
+		steeringSensitivity = steerSensitivity;
 	}
 
 	//Tracker postion and rotation by waypoint
@@ -80,16 +78,24 @@ public class AI_Kart : MonoBehaviour
 		}
 	}
 
+	//Calcule the steer factor
 	public void CalculeSteer()
 	{
 		ProgressTracker();
 		Vector3 localTarget = gameObject.transform.InverseTransformPoint(tracker.transform.position);
 		float targetAngle = Mathf.Atan2(localTarget.x, localTarget.z) * Mathf.Rad2Deg;
 		float steer = Mathf.Clamp(targetAngle * steeringSensitivity, -1, 1) * Mathf.Sign(ak.baseStats.Acceleration);
+		AssignInputsToIA(0, 0.5f, steer);
+	}
 
-		float brake = 0;
-		float accel = 0.5f;
-
+	/*Assign the brake, acceleration and steer to IA
+	 * @parm: the brake to set into IA
+	 * @parm: the acceleration to set into IA
+	 * @parm: the steer sensitivity to set into IA
+	 * @return: void
+	 */
+	public void AssignInputsToIA(float brake, float accel, float steer)
+	{
 		ak.baseStats.Braking = brake;
 		input.verticalValue = accel;
 		input.horizontalValue = steer;
