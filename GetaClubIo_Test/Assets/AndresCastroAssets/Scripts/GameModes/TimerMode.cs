@@ -27,11 +27,11 @@ public class TimerMode : Mode
 		currentTime = totalTimer;
 	}
 
-	public void SetupDifficult(GameDificult dificult)
+	public void SetupDifficult(GameDificulty dificult)
 	{
-		if (dificult == GameDificult.easy) AddTime(60);
-		else if (dificult == GameDificult.normal) AddTime(20);
-		else if (dificult == GameDificult.hard) totalTimer -= 5;
+		if (dificult == GameDificulty.easy) AddTime(60);
+		else if (dificult == GameDificulty.normal) AddTime(20);
+		else if (dificult == GameDificulty.hard) totalTimer -= 5;
 	}
 
 	//Calcule the contdownTime

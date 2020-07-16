@@ -3,7 +3,7 @@
 public class GameData
 {
     public GameType gameType { get; set; }
-	public GameDificult dificulty { get; set; }
+	public GameDificulty dificulty { get; set; }
 	public float topSpeed { get; set; }
 	public float acceleration { get; set; }
 	public float accelerationCurve { get; set; }

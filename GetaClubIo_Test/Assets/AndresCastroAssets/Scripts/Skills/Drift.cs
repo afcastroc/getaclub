@@ -11,16 +11,17 @@ public class Drift : MonoBehaviour
 
 	private void Update()
 	{
-		if (Input.GetAxis("Horizontal") != 0f && Input.GetKey(KeyCode.Space) && !drifting)
-		{
-			SetDriftValues();
-		}
-		else if (drifting && !Input.GetKey(KeyCode.Space))
-		{
-			SetNormalValues();
-		}
+		CheckForDrift();
 	}
 
+	//Checking inputs if player is drifting
+	public void CheckForDrift()
+	{
+		if (Input.GetAxis("Horizontal") != 0f && Input.GetKey(KeyCode.Space) && !drifting) SetDriftValues();
+		else if (drifting && !Input.GetKey(KeyCode.Space)) SetNormalValues();
+	}
+
+	//Set Values to wheels if player is drifting
 	private void SetDriftValues()
 	{
 		drifting = true;
@@ -37,6 +38,7 @@ public class Drift : MonoBehaviour
 		kart.enabled = false;
 	}
 
+	//Set values to normal state when player does not drifting
 	private void SetNormalValues()
 	{
 		drifting = false;

@@ -7,7 +7,7 @@ using Newtonsoft.Json;
 public class GetDataGame : MonoBehaviour
 {
 	[Header("Difficult")]
-	public GameDificult dificult;
+	public GameDificulty dificult;
 
 	[Header("PlayerSettings")]
 	public float topSpeed = 0f;
@@ -52,7 +52,10 @@ public class GetDataGame : MonoBehaviour
 		GetComponent<LoadSceneButton>().LoadTargetScene();
 	}
 
-	//Set kart data for setup in game
+	/*Set kart data for setup in game
+	 * @parm: Data saved by previous scene
+	 * @return: void
+	 */
 	private GameData SetKartsData(GameData data)
 	{
 		data.topSpeed = topSpeed;
@@ -63,7 +66,10 @@ public class GetDataGame : MonoBehaviour
 		return data;
 	}
 
-	//Save gameConfig to Load by next scene
+	/*Save gameConfig to Load by next scene
+	 * @parm: json string value to save
+	 * @return: void
+	 */
 	private void SaveGameData(string json)
 	{
 		PlayerPrefs.SetString(GameConst.GAME_DATA_KEY, json);
